@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unreal Interior Demo 360</title>
+    
+    <link rel="preload" href="https://live.staticflickr.com/65535/50636242728_e226c2b9d1_o.jpg" as="image"/>
+    <link rel="preload" href="https://live.staticflickr.com/65535/50636991231_2c9764e360_o.jpg" as="image"/>
+    <link rel="preload" href="https://live.staticflickr.com/65535/50636239428_5dedeb5871_o.jpg" as="image"/>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    
+</head>
+<body>
+<div id="container">
+    <div id="panorama"></div>
+</div>
+
+<script>
+
+pannellum.viewer('panorama', {
+
+    "default": {
+        "firstScene": "Entrance",
+        "author": "Stormstudio",
+        "sceneFadeDuration": 1000
+        
+    },
+
+    "scenes": {
+        "Entrance": {
+            "title": "Entrance",
+            "hfov": 110,
+            "pitch": 0,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "https://live.staticflickr.com/65535/50636242728_e226c2b9d1_o.jpg",
+            "autoLoad": true,
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": -90,
+                    "type": "scene",
+                    "text": "Robothands",
+                    "sceneId": "Middle"
+                },  
+                {
+                    "pitch": 0,
+                    "yaw": 50,
+                    "type": "scene",
+                    "text": "Shelves",
+                    "sceneId": "Table",
+                    "targetYaw": -25,
+                    "targetPitch": -18,
+                },
+            ]
+        },
+
+        "Table": {
+            "title": "Shelves",
+            "hfov": 100,
+            "pitch": 0,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "https://live.staticflickr.com/65535/50636991231_2c9764e360_o.jpg",
+            "autoLoad": true,
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": -130,
+                    "type": "scene",
+                    "text": "Robothands",
+                    "sceneId": "Middle"
+                },   
+                {
+                    "pitch": 0,
+                    "yaw": -165,
+                    "type": "scene",
+                    "text": "Entrance",
+                    "sceneId": "Entrance",
+                    "targetYaw": 25,
+                    "targetPitch": -5,
+                },
+            ]
+        },
+
+        "Middle": {
+            "title": "Robothands",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "https://live.staticflickr.com/65535/50636239428_5dedeb5871_o.jpg",
+            "autoLoad": true,
+            "hotSpots": [
+                {
+                    "pitch": -5,
+                    "yaw": 90,
+                    "type": "scene",
+                    "text": "Entrance",
+                    "sceneId": "Entrance",
+                    "targetYaw": 25,
+                    "targetPitch": -5,
+                },
+                {
+                    "pitch": 0,
+                    "yaw": 60,
+                    "type": "scene",
+                    "text": "Shelves",
+                    "sceneId": "Table",
+                    "targetYaw": -25,
+                    "targetPitch": -18,
+                },
+            ]
+        },
+        
+    }
+});
+
+</script>
+
+</body>
+</html>
